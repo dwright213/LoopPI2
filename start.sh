@@ -8,6 +8,6 @@ pushd $DIR
 
 DAC=$(./find-device.sh "snd_rpi_wsp")
 ADC=$(./find-device.sh "snd_rpi_wsp")
-MIDI=$(./find-device.sh "nanoKONTROL2")
+MIDI=$(./find-device.sh "padKONTROL")
 
 $CHUCK --dac:$DAC --adc:$ADC --in:1 --out:2 looper.ck

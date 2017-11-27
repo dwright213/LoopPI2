@@ -31,7 +31,7 @@ class Loop {
 }
 
 // default to MIDI 1, overwrite from STDIN
-1 => int midiDevice;
+2 => int midiDevice;
 if (me.args()) {
   me.arg(0) => Std.atoi => midiDevice;
 }
@@ -105,7 +105,7 @@ while (true) {
     }
 
     // input
-    else if (msg.data2 == 6) {
+    else if (msg.data2 == 10) {
       msg.data3 $ float / 127.0 => float vol;
 
       <<< "input vol: ", vol >>>;
@@ -114,7 +114,7 @@ while (true) {
     }
 
     // passthrough
-    else if (msg.data2 == 7) {
+    else if (msg.data2 == 73) {
       msg.data3 $ float / 127.0 => float vol;
 
       <<< "passthrough vol: ", vol >>>;

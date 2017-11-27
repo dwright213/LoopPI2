@@ -47,7 +47,7 @@ if (!midiIn.open(midiDevice)) {
 Gain inputGain, passThrough;
 
 adc => inputGain;
-6   => int loopsCount;
+1   => int loopsCount;
 
 adc => passThrough => dac;
 

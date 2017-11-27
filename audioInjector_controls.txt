@@ -43,3 +43,15 @@ numid=13,iface=MIXER,name='Output Mixer HiFi Playback Switch'
 
 numid=14,iface=MIXER,name='Input Mux'
 ## switches input mix channels, between "Line In" and "Mic"
+
+
+
+TO DO:
+
+- Clean up the setup shell scripts. The setup procedures for the older wm5102 soundcards probably isn't needed anymore.
+
+- work out a way to make chuck recognize loop down and loop up, with a varying loop length, possibly up to 8 seconds. only having 8 second loops isn't really gonna work.
+
+- if the above isn't possible, then allow a bpm setting, and then quantize loop length by measure, like how the Kaoss Pads work.
+
+- maybe start thinking about switching the padkontrol out for the FCB1010. Will probably require more thoughtful midi handling. Will the audio injector help with that somehow? 

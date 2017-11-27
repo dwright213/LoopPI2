@@ -8,10 +8,14 @@
 # This doesn't include Inputs 3 and 4.
 amixer $1 -Dhw:audioinjectorpi cset name='Output Mixer HiFi Playback Switch' on
 
+amixer $1 -Dhw:audioinjectorpi cset name='Line Capture Switch' on
+
 amixer $1 -Dhw:audioinjectorpi cset name='Capture Volume' 56,56
 
 # Setup HPOUT2 input path and volume
-amixer $1 -Dhw:audioinjectorpi cset name='Input Mux' 0 
+amixer $1 -Dhw:audioinjectorpi cset name='Input Mux' 0 #<= sets it to item #0, 
+### which is line input in this case.
+
 # amixer $1 -Dhw:audioinjectorpi cset name='HPOUT2L Input 1 Volume' 75
 # amixer $1 -Dhw:audioinjectorpi cset name='HPOUT2R Input 1' AIF1RX2
 # amixer $1 -Dhw:audioinjectorpi cset name='HPOUT2R Input 1 Volume' 75

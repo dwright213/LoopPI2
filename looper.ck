@@ -2,7 +2,7 @@ class Loop {
   LiSa loop;
 
   fun void init(Gain input) {
-    8::second => loop.duration;
+    1::second => loop.duration;
     1 => loop.play;
     1 => loop.loop;
     1 => loop.loopRec;
@@ -86,7 +86,7 @@ while (true) {
       loop[id].feedback(feedback);
     }
 
-    // record
+    // loop down
     else if (msg.data2 >= 64 && msg.data2 <= 64 + loopsCount - 1) {
       msg.data2 - 64 => int id;
       msg.data3 == 127 => int record;
@@ -94,6 +94,16 @@ while (true) {
       <<< id, " record:", record >>>;
 
       loop[id].record(record);
+    }
+
+    // loop up
+    else if (msg.data2 == 1) {
+//      msg.data2 - 64 => int id;
+//      msg.data3 == 127 => int record;
+
+      <<< id, " loop up" >>>;
+
+//      loop[id].record(record);
     }
 
     // clear

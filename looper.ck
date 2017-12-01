@@ -13,7 +13,7 @@ class Loop {
 
   fun void record(int status) {
     if (status) { loop.playPos() => loop.recPos; }
-
+    <<< "couldn't open midi device " >>>
     status => loop.record;
   }
 

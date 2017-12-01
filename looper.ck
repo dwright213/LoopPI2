@@ -91,7 +91,7 @@ while (true) {
       msg.data2 - 64 => int id;
       msg.data3 == 127 => int record;
 
-      <<< id, " record:", record >>>;
+      <<< id, " record:", msg.data3 >>>;
 
       loop[id].record(record);
     }

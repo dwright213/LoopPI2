@@ -12,7 +12,6 @@ class Loop {
   }
 
   fun void record(int status) {
-    <<< status >>>;
     if (status) { loop.playPos() => loop.recPos; }
 
     status => loop.record;
@@ -94,7 +93,8 @@ while (true) {
       <<< msg.data1, msg.data2, msg.data3 >>>;
       if (msg.data3 == 0) {
         <<< id, "stop recording", record >>>;
-        loop[id].record(record);
+        //loop[id].record(record);
+        loop[id].loopEnd;
         
       } else {
         <<< id, "record:", record >>>;

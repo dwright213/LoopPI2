@@ -12,7 +12,6 @@ class Loop {
   }
 
   fun void record(int status) {
-    <<< status >>>
     if (status) { loop.playPos() => loop.recPos; }
 
     status => loop.record;

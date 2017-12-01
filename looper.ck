@@ -2,7 +2,7 @@ class Loop {
   LiSa loop;
 
   fun void init(Gain input) {
-    8::second => loop.duration;
+    1::second => loop.duration;
     1 => loop.play;
     1 => loop.loop;
     1 => loop.loopRec;
@@ -31,6 +31,7 @@ class Loop {
 }
 
 // default to MIDI 1, overwrite from STDIN
+// midi2 works better with padkontrol -dan
 2 => int midiDevice;
 if (me.args()) {
   me.arg(0) => Std.atoi => midiDevice;
@@ -47,7 +48,7 @@ if (!midiIn.open(midiDevice)) {
 Gain inputGain, passThrough;
 
 adc => inputGain;
-4   => int loopsCount;
+1   => int loopsCount;
 
 adc => passThrough => dac;
 

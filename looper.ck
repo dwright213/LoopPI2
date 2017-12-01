@@ -90,11 +90,12 @@ while (true) {
     else if (msg.data2 >= 64 && msg.data2 <= 64 + loopsCount - 1) {
       msg.data2 - 64 => int id;
       msg.data3 == 127 => int record;
-      if (msg.data3 == 127) {
-        <<< id, "stop recording", msg.data3 >>>;
+      if (msg.data3 == 0) {
+        <<< id, "stop recording", record >>>;
+        loop[id].record(record);
         
       } else {
-        <<< id, " record:", msg.data3 >>>;
+        <<< id, "record:", record >>>;
         loop[id].record(record);
         
       }

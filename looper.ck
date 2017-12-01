@@ -2,7 +2,7 @@ class Loop {
   LiSa loop;
 
   fun void init(Gain input) {
-    1::second => loop.duration;
+    8::second => loop.duration;
     1 => loop.play;
     1 => loop.loop;
     1 => loop.loopRec;

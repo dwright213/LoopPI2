@@ -13,7 +13,7 @@ class Loop {
 
   fun void record(int status) {
     if (status) { loop.playPos() => loop.recPos; }
-    <<< "couldn't open midi device " >>>
+
     status => loop.record;
   }
 
@@ -86,10 +86,11 @@ while (true) {
       loop[id].feedback(feedback);
     }
 
-    // loop down
+    // loop record
     else if (msg.data2 >= 64 && msg.data2 <= 64 + loopsCount - 1) {
       msg.data2 - 64 => int id;
       msg.data3 == 127 => int record;
+      <<< msg.data1, msg.data2, msg.data3 >>>;
       if (msg.data3 == 0) {
         <<< id, "stop recording", record >>>;
         loop[id].record(record);
@@ -100,16 +101,6 @@ while (true) {
         
       }
 
-    }
-
-    // loop up
-    else if (msg.data2 == 1) {
-      0 => int id;
-      msg.data3 == 127 => int record;
-
-      <<< id, "loop up", record>>>;
-
-//      loop[id].record(record);
     }
 
     // clear

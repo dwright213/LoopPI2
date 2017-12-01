@@ -99,7 +99,7 @@ while (true) {
     // loop up
     else if (msg.data2 == 1) {
       0 => int id;
-      msg.data3 == 1 => int record;
+      msg.data3 == 127 => int record;
 
       <<< id, "loop up", record>>>;
 

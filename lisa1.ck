@@ -1,5 +1,5 @@
 //a simple signal path
-adc sampel => LiSa saveme => dac;
+ADC sampel => LiSa saveme => dac;
 
 //give the oscillator a frequency 
 //500 => sin.freq;

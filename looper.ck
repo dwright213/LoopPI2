@@ -68,10 +68,10 @@ while (true) {
   while (midiIn.recv(msg)) {
 
     // loop record
-    else if (msg.data2 == 64) {
+    if (msg.data2 == 64) {
       msg.data2 - 64 => int id;
       msg.data3 == 127 => int record;
-      <<< now >>>;
+      <<< msg.data1, msg.data2, msg.data3 >>>;
         <<< id, "record:", record >>>;
         loop[id].record(record);
         
@@ -92,7 +92,7 @@ while (true) {
 
 //volume levels
     // main volume
-    if (msg.data2 == 0) {
+    else if (msg.data2 == 0) {
       msg.data2 => int id;
       msg.data3 $ float / 127.0 => float volume;
 

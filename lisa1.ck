@@ -18,8 +18,6 @@ adc => LiSa saveme => dac;
 
 
 
-0::ms => saveme.playPos;
-
 
 //also tell it where the loop endpoint is 
 0::second => saveme.loopStart;

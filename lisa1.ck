@@ -8,13 +8,13 @@ adc => LiSa saveme => dac;
 3::second => saveme.duration;
 
 //start recording 
-true => saveme.record;
+1 => saveme.record;
 
 //hang out 
 3::second => now;
 
 //stop recording 
-false => saveme.record;
+0 => saveme.record;
 
 
 
@@ -23,7 +23,7 @@ false => saveme.record;
 3::second => saveme.loopEnd;
 
 //tell it to loop through what we've sampled 
-true => saveme.loop;
+1 => saveme.loop;
 
 
 loopitnow(3);
@@ -35,11 +35,11 @@ fun void loopitnow(int length)	{
 
 	while (true)	{
 		<<< "This can be useful for looping audio indefinitely." >>>;
-		true => saveme.play;
+		1 => saveme.play;
 
 		length::second => now;
 
-		false => saveme.play;
+		0 => saveme.play;
 	}
 
 

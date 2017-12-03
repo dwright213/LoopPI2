@@ -5,13 +5,13 @@ adc => LiSa saveme => dac;
 //500 => sin.freq;
 
 //gotta tell LiSa how much memory to allocate 
-3::second => saveme.duration;
+1.566::second => saveme.duration;
 
 //start recording 
 1 => saveme.record;
 
 //hang out 
-3::second => now;
+1.566::second => now;
 
 //stop recording 
 0 => saveme.record;
@@ -24,14 +24,11 @@ adc => LiSa saveme => dac;
 
 //tell it to loop through what we've sampled 
 1 => saveme.loop;
+<<< saveme.loop >>>;
 
+loopitnow(1.566);
 
-loopitnow(3);
-
-//loopitnow(1);
 fun void loopitnow(int length)	{
-
-	<<< length >>>;
 
 	while (true)	{
 		<<< "This can be useful for looping audio indefinitely." >>>;

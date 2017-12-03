@@ -11,7 +11,7 @@ adc => LiSa saveme => dac;
 1 => saveme.record;
 
 //hang out 
-3::second => now;
+2::second => now;
 
 //stop recording 
 0 => saveme.record;
@@ -20,19 +20,27 @@ adc => LiSa saveme => dac;
 
 
 //also tell it where the loop endpoint is 
-0::second => saveme.loopStart;
-3::second => saveme.loopEnd;
+//0::second => saveme.loopStart;
+//3::second => saveme.loopEnd;
 
 //tell it to loop through what we've sampled 
-1 => saveme.loop;
+//1 => saveme.loop;
+
+
+fun void loopitnow(int length)	{
+
+	<<< "in our 'loop' function." >>>;
+
+	while (true)	{
+		<<< "This can be useful for looping audio indefinitely." >>>;
+		1 => saveme.play;
+
+		length::second => now;
+
+		0 => saveme.play;
+	}
 
 
 
-while (true)	{
-  <<< "This can be useful for looping audio indefinitely." >>>;
-	1 => saveme.loop;
-
-	3::second => now;
-
-	0 => saveme.loop;
+  
 }

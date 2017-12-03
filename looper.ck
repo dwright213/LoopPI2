@@ -2,7 +2,7 @@ class Loop {
   LiSa loop;
 
   fun void init(Gain input) {
-    1::second => loop.duration;
+    5::second => loop.duration;
     1 => loop.play;
     1 => loop.loop;
     1 => loop.loopRec;
@@ -66,43 +66,15 @@ while (true) {
   midiIn => now;
 
   while (midiIn.recv(msg)) {
-    // volume
-    //if (msg.data2 >= 0 && msg.data2 <= 0 + loopsCount - 1) {
-    if (msg.data2 == 0) {
-      msg.data2 => int id;
-      msg.data3 $ float / 127.0 => float volume;
-
-      <<< id, " volume:", volume >>>;
-
-      loop[id].volume(volume);
-    }
-
-    // feedback
-    //else if (msg.data2 >= 16 && msg.data2 <= 16 + loopsCount - 1) {
-    else if (msg.data2 == 16) {
-      msg.data2 - 16 => int id;
-      msg.data3 $ float / 127.0 => float feedback;
-
-      <<< id, " feedback:", feedback >>>;
-
-      loop[id].feedback(feedback);
-    }
 
     // loop record
-    //else if (msg.data2 >= 64 && msg.data2 <= 64 + loopsCount - 1) {
     else if (msg.data2 == 64) {
       msg.data2 - 64 => int id;
       msg.data3 == 127 => int record;
-      <<< msg.data1, msg.data2, msg.data3 >>>;
-      if (msg.data3 == 0) {
-        <<< id, "stop recording", record >>>;
-        loop[id].record(record);
-        
-      } else {
+      <<< now >>>;
         <<< id, "record:", record >>>;
         loop[id].record(record);
         
-      }
 
     }
 
@@ -113,6 +85,30 @@ while (true) {
       <<< id, " clear" >>>;
 
       loop[id].clear();
+    }
+
+
+
+
+//volume levels
+    // main volume
+    if (msg.data2 == 0) {
+      msg.data2 => int id;
+      msg.data3 $ float / 127.0 => float volume;
+
+      <<< id, " volume:", volume >>>;
+
+      loop[id].volume(volume);
+    }
+
+    // feedback
+    else if (msg.data2 == 16) {
+      msg.data2 - 16 => int id;
+      msg.data3 $ float / 127.0 => float feedback;
+
+      <<< id, " feedback:", feedback >>>;
+
+      loop[id].feedback(feedback);
     }
 
     // input

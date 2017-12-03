@@ -67,7 +67,8 @@ while (true) {
 
   while (midiIn.recv(msg)) {
     // volume
-    if (msg.data2 >= 0 && msg.data2 <= 0 + loopsCount - 1) {
+    //if (msg.data2 >= 0 && msg.data2 <= 0 + loopsCount - 1) {
+    if (msg.data2 == 0) {
       msg.data2 => int id;
       msg.data3 $ float / 127.0 => float volume;
 
@@ -77,7 +78,8 @@ while (true) {
     }
 
     // feedback
-    else if (msg.data2 >= 16 && msg.data2 <= 16 + loopsCount - 1) {
+    //else if (msg.data2 >= 16 && msg.data2 <= 16 + loopsCount - 1) {
+    else if (msg.data2 == 16) {
       msg.data2 - 16 => int id;
       msg.data3 $ float / 127.0 => float feedback;
 
@@ -87,7 +89,8 @@ while (true) {
     }
 
     // loop record
-    else if (msg.data2 >= 64 && msg.data2 <= 64 + loopsCount - 1) {
+    //else if (msg.data2 >= 64 && msg.data2 <= 64 + loopsCount - 1) {
+    else if (msg.data2 == 64) {
       msg.data2 - 64 => int id;
       msg.data3 == 127 => int record;
       <<< msg.data1, msg.data2, msg.data3 >>>;
@@ -104,7 +107,7 @@ while (true) {
     }
 
     // clear
-    else if (msg.data2 >= 32 && msg.data2 <= 32 + loopsCount - 1) {
+    else if (msg.data2 == 32) {
       msg.data2 - 32 => int id;
 
       <<< id, " clear" >>>;

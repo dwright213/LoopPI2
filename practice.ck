@@ -16,4 +16,6 @@
 //of the patch cables in a modular synth.
 
 //// allow 2 seconds to pass
-      20::second => now;
+    while ( true ) {
+      2::second => now;
+    }

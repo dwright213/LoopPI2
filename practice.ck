@@ -3,7 +3,7 @@
 
 
 //// connect sine oscillator to D/A convertor (sound card)
-	TriOsc s => dac;
+	SinOsc s => dac;
 
 // in javascript (roughly):
 //	var s = function() { 

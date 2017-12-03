@@ -26,7 +26,7 @@ false => saveme.record;
 true => saveme.loop;
 
 
-loopitnow(3)
+loopitnow(3);
 
 //loopitnow(1);
 fun void loopitnow(int length)	{

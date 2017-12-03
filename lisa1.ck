@@ -26,7 +26,7 @@ adc => LiSa saveme => dac;
 // Let's say you don't want it to click:
 
 //gotta go back to the beginning 
-0::ms => saveme.playPos
+0::ms => saveme.playPos;
 
 50::ms => saveme.rampUp;
 
@@ -39,7 +39,7 @@ adc => LiSa saveme => dac;
 // Let's say you want to transpose it:
 
 //gotta go back to the beginning, again! 
-0::ms => saveme.playPos
+0::ms => saveme.playPos;
 
 50::ms => saveme.rampUp;
 

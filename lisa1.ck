@@ -5,7 +5,7 @@ adc => LiSa saveme => dac;
 //500 => sin.freq;
 
 //gotta tell LiSa how much memory to allocate 
-5::second => saveme.duration;
+3::second => saveme.duration;
 
 //start recording 
 1 => saveme.record;
@@ -22,8 +22,16 @@ adc => LiSa saveme => dac;
 
 
 //also tell it where the loop endpoint is 
-1::second => saveme.loopStart;
-4::second => saveme.loopEnd;
+0::second => saveme.loopStart;
+3::second => saveme.loopEnd;
 
 //tell it to loop through what we've sampled 
 1 => saveme.loop;
+
+1 => saveme.play;
+
+3::second => now;
+
+0 => saveme.play;
+
+

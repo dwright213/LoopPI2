@@ -30,9 +30,9 @@ adc => LiSa saveme => dac;
 
 while (true)	{
   <<< "This can be useful for looping audio indefinitely." >>>;
-	1 => saveme.play;
+	1 => saveme.loop;
 
 	3::second => now;
 
-	0 => saveme.play;
+	0 => saveme.loop;
 }

@@ -11,7 +11,7 @@ adc => LiSa saveme => dac;
 1 => saveme.record;
 
 //hang out 
-5::second => now;
+3::second => now;
 
 //stop recording 
 0 => saveme.record;
@@ -28,7 +28,7 @@ adc => LiSa saveme => dac;
 //tell it to loop through what we've sampled 
 1 => saveme.loop;
 
-0 => saveme.play;
+1 => saveme.play;
 
 3::second => now;
 

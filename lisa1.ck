@@ -1,8 +1,8 @@
 //a simple signal path
-adc => LiSa saveme => dac;
+adc sampel => LiSa saveme => dac;
 
 //give the oscillator a frequency 
-500 => sin.freq;
+//500 => sin.freq;
 
 //gotta tell LiSa how much memory to allocate 
 5::second => saveme.duration;

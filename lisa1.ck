@@ -25,7 +25,7 @@ SinOsc sin => LiSa saveme => dac;
 
 
 //gotta go back to the beginning 
-0::ms => saveme.playPos
+0::ms => saveme.playPos;
 
 50::ms => saveme.rampUp;
 

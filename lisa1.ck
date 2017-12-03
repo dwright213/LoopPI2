@@ -18,28 +18,13 @@ adc => LiSa saveme => dac;
 
 
 
-//Yippee, we've recorded 1 second of something wave into a buffer. Now let's play it back:
-1 => saveme.play;
-
-1::second => now;
-
-// Let's say you don't want it to click:
-
-//gotta go back to the beginning 
 0::ms => saveme.playPos;
 
-50::ms => saveme.rampUp;
+//tell it to loop through what we've sampled 
+1 => saveme.loop;
 
-950::ms => now;
-
-50::ms => saveme.rampDown;
-
-50::ms => now;
-
-// Let's say you want to transpose it:
-
-//gotta go back to the beginning, again! 
-0::ms => saveme.playPos;
+//also tell it where the loop endpoint is 
+1::second => saveme.loopEnd;
 
 50::ms => saveme.rampUp;
 
@@ -50,4 +35,3 @@ adc => LiSa saveme => dac;
 50::ms => saveme.rampDown;
 
 50::ms => now;
-

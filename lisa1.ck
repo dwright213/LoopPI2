@@ -16,7 +16,7 @@ adc => LiSa saveme => dac;
 //stop recording 
 0 => saveme.record;
 
-loopitnow(3);
+loopitnow(1);
 
 
 //also tell it where the loop endpoint is 

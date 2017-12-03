@@ -18,21 +18,12 @@ adc => LiSa saveme => dac;
 
 
 
-0::ms => saveme.playPos;
+//0::ms => saveme.playPos;
 
-//tell it to loop through what we've sampled 
-1 => saveme.loop;
 
 //also tell it where the loop endpoint is 
 1::second => saveme.loopStart;
 4::second => saveme.loopEnd;
 
-50::ms => saveme.rampUp;
-
-2 => saveme.rate;
-
-950::ms => now;
-
-50::ms => saveme.rampDown;
-
-50::ms => now;
+//tell it to loop through what we've sampled 
+1 => saveme.loop;

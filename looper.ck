@@ -2,7 +2,7 @@ class Loop {
   LiSa loop;
 
   fun void init(Gain input) {
-    8::second => loop.duration;
+    1::second => loop.duration;
     1 => loop.play;
     1 => loop.loop;
     1 => loop.loopRec;
@@ -30,7 +30,7 @@ class Loop {
   }
 }
 
-// default to MIDI 2, overwrite from STDIN
+// default to MIDI 1, overwrite from STDIN
 // midi2 works better with padkontrol -dan
 2 => int midiDevice;
 if (me.args()) {
@@ -90,7 +90,6 @@ while (true) {
     else if (msg.data2 >= 64 && msg.data2 <= 64 + loopsCount - 1) {
       msg.data2 - 64 => int id;
       msg.data3 == 127 => int record;
-
       <<< id, " record:", record >>>;
 
       loop[id].record(record);
@@ -106,7 +105,7 @@ while (true) {
     }
 
     // input
-    else if (msg.data2 == 6) {
+    else if (msg.data2 == 10) {
       msg.data3 $ float / 127.0 => float vol;
 
       <<< "input vol: ", vol >>>;
@@ -115,7 +114,7 @@ while (true) {
     }
 
     // passthrough
-    else if (msg.data2 == 7) {
+    else if (msg.data2 == 73) {
       msg.data3 $ float / 127.0 => float vol;
 
       <<< "passthrough vol: ", vol >>>;

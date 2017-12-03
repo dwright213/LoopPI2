@@ -11,7 +11,7 @@ adc => LiSa saveme => dac;
 5 => saveme.record;
 
 //hang out 
-1::second => now;
+5::second => now;
 
 //stop recording 
 0 => saveme.record;

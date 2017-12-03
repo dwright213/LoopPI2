@@ -26,10 +26,13 @@ adc => LiSa saveme => dac;
 //tell it to loop through what we've sampled 
 1 => saveme.loop;
 
-1 => saveme.play;
-
-3::second => now;
-
-0 => saveme.play;
 
 
+while (true)	{
+  <<< "This can be useful for looping audio indefinitely." >>>;
+	1 => saveme.play;
+
+	3::second => now;
+
+	0 => saveme.play;
+}

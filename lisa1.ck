@@ -28,7 +28,7 @@ adc => LiSa saveme => dac;
 
 loopitnow(1.566);
 
-fun void loopitnow(int length)	{
+fun void loopitnow(float length)	{
 
 	while (true)	{
 		<<< "This can be useful for looping audio indefinitely." >>>;

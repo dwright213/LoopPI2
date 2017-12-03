@@ -93,8 +93,6 @@ while (true) {
       <<< msg.data1, msg.data2, msg.data3 >>>;
       if (msg.data3 == 0) {
         <<< id, "stop recording", record >>>;
-        //loop[id].record(record);
-        loop[id].loopEnd;
         
       } else {
         <<< id, "record:", record >>>;

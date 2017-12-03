@@ -18,9 +18,21 @@ adc => LiSa saveme => dac;
 
 
 
-//Yippee, we've recorded 1 second of a sine wave into a buffer. Now let's play it back:
+//Yippee, we've recorded 1 second of something wave into a buffer. Now let's play it back:
 1 => saveme.play;
 
 1::second => now;
+
+//gotta go back to the beginning 
+0::ms => saveme.playPos
+
+50::ms => saveme.rampUp;
+
+950::ms => now;
+
+50::ms => saveme.rampDown;
+
+50::ms => now;
+
 
 

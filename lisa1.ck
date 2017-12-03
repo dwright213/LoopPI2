@@ -1,5 +1,5 @@
 //a simple signal path
-SinOsc sin => LiSa saveme => dac;
+adc sin => LiSa saveme => dac;
 
 //give the oscillator a frequency 
 500 => sin.freq;
@@ -24,14 +24,3 @@ SinOsc sin => LiSa saveme => dac;
 1::second => now;
 
 
-//gotta go back to the beginning 
-0::ms => saveme.playPos;
-
-50::ms => saveme.rampUp;
-
-950::ms => now;
-
-50::ms => saveme.rampDown;
-
-50::ms => now;
-0 => saveme.play;

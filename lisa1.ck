@@ -35,11 +35,11 @@ fun void loopitnow(int length)	{
 
 	while (true)	{
 		<<< "This can be useful for looping audio indefinitely." >>>;
-		1 => saveme.play;
+		true => saveme.play;
 
 		length::second => now;
 
-		0 => saveme.play;
+		false => saveme.play;
 	}
 
 

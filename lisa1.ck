@@ -23,8 +23,10 @@ adc => LiSa saveme => dac;
 
 1::second => now;
 
+// Let's say you don't want it to click:
+
 //gotta go back to the beginning 
-0::ms => saveme.playPos;
+0::ms => saveme.playPos
 
 50::ms => saveme.rampUp;
 
@@ -34,5 +36,18 @@ adc => LiSa saveme => dac;
 
 50::ms => now;
 
+// Let's say you want to transpose it:
 
+//gotta go back to the beginning, again! 
+0::ms => saveme.playPos
+
+50::ms => saveme.rampUp;
+
+2 => saveme.rate;
+
+950::ms => now;
+
+50::ms => saveme.rampDown;
+
+50::ms => now;
 

@@ -11,12 +11,12 @@ adc => LiSa saveme => dac;
 1 => saveme.record;
 
 //hang out 
-2::second => now;
+3::second => now;
 
 //stop recording 
 0 => saveme.record;
 
-loopitnow(2);
+loopitnow(3);
 
 
 //also tell it where the loop endpoint is 

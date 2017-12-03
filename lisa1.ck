@@ -28,7 +28,7 @@ adc => LiSa saveme => dac;
 //tell it to loop through what we've sampled 
 1 => saveme.loop;
 
-1 => saveme.play;
+0 => saveme.play;
 
 3::second => now;
 

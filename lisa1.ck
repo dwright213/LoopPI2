@@ -8,7 +8,7 @@ adc => LiSa saveme => dac;
 5::second => saveme.duration;
 
 //start recording 
-5 => saveme.record;
+1 => saveme.record;
 
 //hang out 
 5::second => now;
@@ -24,6 +24,7 @@ adc => LiSa saveme => dac;
 1 => saveme.loop;
 
 //also tell it where the loop endpoint is 
+1::second => saveme.loopStart;
 4::second => saveme.loopEnd;
 
 50::ms => saveme.rampUp;

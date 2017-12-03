@@ -5,13 +5,13 @@ adc => LiSa saveme => dac;
 //500 => sin.freq;
 
 //gotta tell LiSa how much memory to allocate 
-1.566::second => saveme.duration;
+1.55::second => saveme.duration;
 
 //start recording 
 1 => saveme.record;
 
 //hang out 
-1.566::second => now;
+1.55::second => now;
 
 //stop recording 
 0 => saveme.record;
@@ -26,7 +26,7 @@ adc => LiSa saveme => dac;
 1 => saveme.loop;
 <<< saveme.loop >>>;
 
-loopitnow(1.566);
+loopitnow(1.55);
 
 fun void loopitnow(float length)	{
 

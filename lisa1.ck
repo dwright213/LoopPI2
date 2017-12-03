@@ -8,25 +8,27 @@ adc => LiSa saveme => dac;
 3::second => saveme.duration;
 
 //start recording 
-1 => saveme.record;
+1 => saveme.loopRec;
 
 //hang out 
 3::second => now;
 
 //stop recording 
-0 => saveme.record;
+0 => saveme.loopRec;
 
-loopitnow(1);
 
 
 //also tell it where the loop endpoint is 
-//0::second => saveme.loopStart;
-//3::second => saveme.loopEnd;
+0::second => saveme.loopStart;
+3::second => saveme.loopEnd;
 
 //tell it to loop through what we've sampled 
-//1 => saveme.loop;
+1 => saveme.loop;
 
 
+
+
+//loopitnow(1);
 fun void loopitnow(int length)	{
 
 	<<< "in our 'loop' function." >>>;

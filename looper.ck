@@ -63,7 +63,7 @@ for (0 => int i; i < loopsCount; i++) {
 }
 
 while (true) {
-  midiIn => now;
+  //midiIn => now;
 
   while (midiIn.recv(msg)) {
 

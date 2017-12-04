@@ -99,6 +99,7 @@ while (true) {
       msg.data2 - 32 => int id;
 
       <<< id, " clear" >>>;
+      <<< loop[id].beatLength>>>;
 
       loop[id].clear();
     }

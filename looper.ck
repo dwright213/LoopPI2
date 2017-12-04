@@ -134,7 +134,6 @@ while (true) {
 
       <<< id, " beatlength:", loop[id].beatLength >>>;
 
-      loop[id].feedback(feedback);
     }
 
     // input

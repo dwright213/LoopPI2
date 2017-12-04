@@ -8,12 +8,11 @@ class Loop {
     1 => loop.loopRec;
     1 => loop.maxVoices;
     
-    10 => int beatLength;
+    10.0 => float beatLength;
     input => loop => dac;
   }
 
-  fun void timenow(int avar) {
-    <<< avar >>>;
+  fun void timenow() {
     <<< now >>>;
   }
 
@@ -77,7 +76,7 @@ while (true) {
     if (msg.data2 == 64) {
       msg.data2 - 64 => int id;
       msg.data3 == 127 => int record;
-      loop[id].timenow(21);
+      loop[id].timenow();
       <<< id, "record:", record >>>;
       loop[id].record(record);
         

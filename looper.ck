@@ -77,6 +77,7 @@ while (true) {
       msg.data2 - 64 => int id;
       msg.data3 == 127 => int record;
       <<< id, "record:", record >>>;
+      <<< loop[id] >>>;
       loop[id].record(record);
       loop[id].timenow();
         

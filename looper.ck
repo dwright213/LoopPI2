@@ -128,7 +128,7 @@ while (true) {
     }
 */
     // bpmish
-    else if (msg.data2 == 10) {
+    else if (msg.data2 == 16) {
       msg.data2 - 16 => int id;
       msg.data3 / 60.0 => loop[id].beatLength;
       msg.data3 => loop[id].bpm;
@@ -140,7 +140,7 @@ while (true) {
     }
 
     // input
-    else if (msg.data2 == 16) {
+    else if (msg.data2 == 10) {
       msg.data3 $ float / 127.0 => float vol;
 
       <<< "input vol: ", vol >>>;

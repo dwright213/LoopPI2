@@ -11,6 +11,10 @@ class Loop {
     input => loop => dac;
   }
 
+  fun void timeNow() {
+    <<< now >>>;
+  }
+
   fun void record(int status) {
     if (status) { loop.playPos() => loop.recPos; }
 
@@ -63,7 +67,7 @@ for (0 => int i; i < loopsCount; i++) {
 }
 
 while (true) {
-  //midiIn => now;
+  midiIn => now;
 
   while (midiIn.recv(msg)) {
 
@@ -71,7 +75,7 @@ while (true) {
     if (msg.data2 == 64) {
       msg.data2 - 64 => int id;
       msg.data3 == 127 => int record;
-      <<< now >>>;
+      timeNow();
         <<< id, "record:", record >>>;
         loop[id].record(record);
         

@@ -133,6 +133,7 @@ while (true) {
       msg.data3 / 60.0 => loop[id].beatLength;
       msg.data3 => loop[id].bpm;
 
+      loop[id].loop.loopEnd(loop[id].beatLength::second);
 
       <<< msg.data3, " beatlength:", loop[id].beatLength >>>;
       <<< msg.data3, " bpm:", loop[id].beatLength >>>;

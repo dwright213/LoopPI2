@@ -84,9 +84,9 @@ while (true) {
 
       <<< id, "record:", record >>>;
       loop[id].record(record);
-      loop[id].loop.loopStart(0::second)
-      loop[id].loop.loopEnd(1::second)
-      <<< >>>;
+      loop[id].loop.loopStart(0::second);
+      loop[id].loop.loopEnd(1::second);
+      //<<< >>>;
         
 
     }

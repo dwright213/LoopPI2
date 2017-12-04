@@ -14,7 +14,7 @@ class Loop {
 
   fun void timenow() {
     <<< now >>>;
-    now => beatLength;
+    //now => beatLength;
     << beatLength >>;
 
   }

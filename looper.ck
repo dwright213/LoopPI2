@@ -12,7 +12,7 @@ class Loop {
     input => loop => dac;
   }
 
-  fun void timenow(float bbppmm) {
+  fun void timenow() {
     <<< now >>>;
     <<< bbppmm >>>;
   }
@@ -79,7 +79,7 @@ while (true) {
       msg.data3 == 127 => int record;
       <<< id, "record:", record >>>;
       loop[id].record(record);
-      loop[id].timenow(loop[id].beatLength);
+      loop[id].timenow();
         
 
     }

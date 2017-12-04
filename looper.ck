@@ -75,10 +75,15 @@ while (true) {
     // loop record
     if (msg.data2 == 64) {
       msg.data2 - 64 => int id;
+      
+      // determine whether "msg.data3 == 127" is true. And if so, 
+      // convert "true" to an integer and assign it to the variable
+      // "record" 
       msg.data3 == 127 => int record;
+
       <<< id, "record:", record >>>;
       loop[id].record(record);
-      <<< loop[id] >>>;
+      <<< loop[id].rate >>>;
         
 
     }

@@ -129,7 +129,7 @@ while (true) {
     // bpmish
     else if (msg.data2 == 16) {
       msg.data2 - 16 => int id;
-      msg.data3 / 60 => loop[id].beatLength;
+      msg.data3 / 60.0 => loop[id].beatLength;
 
 
       <<< msg.data3, " beatlength:", loop[id].beatLength >>>;

@@ -66,7 +66,7 @@ Loop loop[loopsCount];
 
 for (0 => int i; i < loopsCount; i++) {
   loop[i].init(inputGain);
-  loop[i].feedback(1.0);
+  loop[i].feedback(0);
 }
 
 while (true) {
@@ -88,7 +88,6 @@ while (true) {
       loop[id].loop.loopStart(0::second);
       loop[id].loop.loopEnd(1::second);
 
-      33.33 => loop[id].beatLength;
       <<< loop[id].beatLength>>>;
         
 
@@ -99,7 +98,6 @@ while (true) {
       msg.data2 - 32 => int id;
 
       <<< id, " clear" >>>;
-      <<< loop[id].beatLength>>>;
 
       loop[id].clear();
     }
@@ -119,11 +117,22 @@ while (true) {
     }
 
     // feedback
-    else if (msg.data2 == 16) {
+/*    else if (msg.data2 == 16) {
       msg.data2 - 16 => int id;
       msg.data3 $ float / 127.0 => float feedback;
 
       <<< id, " feedback:", feedback >>>;
+
+      loop[id].feedback(feedback);
+    }
+*/
+    // bpmish
+    else if (msg.data2 == 16) {
+      msg.data2 - 16 => int id;
+      msg.data3 / 60 => loop[id].beatLength;
+
+
+      <<< id, " beatlength:", loop[id].beatLength >>>;
 
       loop[id].feedback(feedback);
     }

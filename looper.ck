@@ -14,7 +14,6 @@ class Loop {
 
   fun void timenow() {
     <<< now >>>;
-    <<< bbppmm >>>;
   }
 
   fun void record(int status) {

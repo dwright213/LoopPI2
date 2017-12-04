@@ -86,8 +86,8 @@ while (true) {
       loop[id].record(record);
       loop[id].loop.loopStart(0::second);
       loop[id].loop.loopEnd(1::second);
-      <<< loop[id].loop.loopEnd>>>;
-      <<< loop[id].loop.loopStart>>>;
+      //<<< loop[id].loop.loopEnd>>>;
+      <<< loop[id].beatLength>>>;
         
 
     }

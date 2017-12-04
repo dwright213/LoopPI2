@@ -2,6 +2,7 @@ class Loop {
   LiSa loop;
 
   float beatLength;
+  float bpm;
   
   fun void init(Gain input) {
     3::second => loop.duration;
@@ -130,6 +131,7 @@ while (true) {
     else if (msg.data2 == 16) {
       msg.data2 - 16 => int id;
       msg.data3 / 60.0 => loop[id].beatLength;
+      msg.data3 => loop[id].bpm;
 
 
       <<< msg.data3, " beatlength:", loop[id].beatLength >>>;

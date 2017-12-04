@@ -87,7 +87,7 @@ while (true) {
       <<< id, "record:", record >>>;
       loop[id].record(record);
       loop[id].loop.loopStart(0::second);
-      loop[id].loop.loopEnd(1::second);
+      loop[id].loop.loopEnd(beatLength::second);
 
       <<< loop[id].beatLength>>>;
         
@@ -106,7 +106,7 @@ while (true) {
 
 
 
-//volume levels
+  //volume levels
     // main volume
     else if (msg.data2 == 0) {
       msg.data2 => int id;
@@ -135,6 +135,7 @@ while (true) {
 
 
       <<< msg.data3, " beatlength:", loop[id].beatLength >>>;
+      <<< msg.data3, " bpm:", loop[id].beatLength >>>;
 
     }
 

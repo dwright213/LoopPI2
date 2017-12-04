@@ -8,7 +8,7 @@ class Loop {
     1 => loop.loopRec;
     1 => loop.maxVoices;
     
-    int 10 => beatLength;
+    10 => int beatLength;
     input => loop => dac;
   }
 

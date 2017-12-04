@@ -1,6 +1,8 @@
 class Loop {
   LiSa loop;
 
+  float beatLength;
+  
   fun void init(Gain input) {
     3::second => loop.duration;
     1 => loop.play;
@@ -9,7 +11,6 @@ class Loop {
     1 => loop.maxVoices;
     
     
-    float beatLength;
     input => loop => dac;
   }
 

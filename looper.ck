@@ -11,7 +11,8 @@ class Loop {
     input => loop => dac;
   }
 
-  fun void timeNow() {
+  fun void timeNow(int avar) {
+    <<< avar >>>;
     <<< now >>>;
   }
 
@@ -75,9 +76,10 @@ while (true) {
     if (msg.data2 == 64) {
       msg.data2 - 64 => int id;
       msg.data3 == 127 => int record;
-      timeNow();
-        <<< id, "record:", record >>>;
-        loop[id].record(record);
+      loop[id].avar(21);
+      loop[id].timenow(21);
+      <<< id, "record:", record >>>;
+      loop[id].record(record);
         
 
     }

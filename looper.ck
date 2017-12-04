@@ -2,12 +2,12 @@ class Loop {
   LiSa loop;
 
   fun void init(Gain input) {
-    5::second => loop.duration;
+    3::second => loop.duration;
     1 => loop.play;
     1 => loop.loop;
     1 => loop.loopRec;
     1 => loop.maxVoices;
-    13 => loop.rate;
+    
     
     10.0 => float beatLength;
     input => loop => dac;
@@ -78,13 +78,15 @@ while (true) {
       msg.data2 - 64 => int id;
       
       // determine whether "msg.data3 == 127" is true. And if so, 
-      // convert "true" to an integer and assign it to the variable
-      // "record" 
+      // convert "true" to an integer and assign it to a variable
+      // named "record" 
       msg.data3 == 127 => int record;
 
       <<< id, "record:", record >>>;
       loop[id].record(record);
-      <<< loop[id].loop.rate() >>>;
+      loop[id].loop.loopStart(0::second)
+      loop[id].loop.loopEnd(1::second)
+      <<< >>>;
         
 
     }

@@ -132,7 +132,7 @@ while (true) {
       msg.data3 / 60 => loop[id].beatLength;
 
 
-      <<< id, " beatlength:", loop[id].beatLength >>>;
+      <<< msg.data3, " beatlength:", loop[id].beatLength >>>;
 
     }
 

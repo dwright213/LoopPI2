@@ -7,6 +7,7 @@ class Loop {
     1 => loop.loop;
     1 => loop.loopRec;
     1 => loop.maxVoices;
+    13 => loop.rate;
     
     10.0 => float beatLength;
     input => loop => dac;

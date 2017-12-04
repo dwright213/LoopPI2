@@ -83,7 +83,7 @@ while (true) {
 
       <<< id, "record:", record >>>;
       loop[id].record(record);
-      <<< loop[id].loop >>>;
+      <<< loop[id].loop.rate >>>;
         
 
     }

@@ -136,7 +136,7 @@ while (true) {
       loop[id].loop.loopEnd(loop[id].beatLength::second);
 
       <<< msg.data3, " beatlength:", loop[id].beatLength >>>;
-      <<< msg.data3, " bpm:", loop[id].beatLength >>>;
+      <<< msg.data3, " bpm:", loop[id].beatLength * 60 >>>;
 
     }
 

@@ -111,7 +111,7 @@ while (true) {
     else if (msg.data2 == 0) {
       msg.data2 => int id;
       msg.data3 $ float / 127.0 => float volume;
-      <<< msg.data3 >>>;
+      <<< msg.data1, msg.data2, msg.data3,  >>>;
       <<< id, " volume:", volume >>>;
 
       loop[id].volume(volume);

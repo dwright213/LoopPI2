@@ -63,7 +63,6 @@ adc => passThrough => dac;
 
 1.0 => inputGain.gain;
 1.0 => passThrough.gain;
-2 => 
 
 Loop loop[loopsCount];
 

@@ -154,8 +154,8 @@ while (true) {
 
 
       <<< msg.data3, " beatlength:", loop[id].beatLength >>>;
-      <<< msg.data3, " barlength:", loop[id].beatLength * 4 >>>;
-      <<< msg.data3, " bpm:", loop[id].beatLength * 60 >>>;
+      <<< msg.data3, " barlength:", loop[id].barLength >>>;
+      <<< msg.data3, " bpm:", loop[id].bpm >>>;
 
     }
 

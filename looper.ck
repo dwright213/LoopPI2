@@ -136,7 +136,7 @@ while (true) {
       msg.data2 - 16 => int id;
       msg.data3 / 60.0 => loop[id].beatLength;
       msg.data3 => loop[id].bpm;
-      loop[id].beatLength * 4 => loop[id].barLength 
+      loop[id].beatLength * 4 => loop[id].barLength; 
 
       loop[id].loop.loopEnd(loop[id].beatLength::second);
 

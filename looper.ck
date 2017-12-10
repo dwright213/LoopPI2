@@ -5,7 +5,8 @@ class Loop {
   float bpm;
   
   fun void init(Gain input) {
-    3::second => loop.duration;
+    6::second => loop.duration;
+    6::second => loop.duration;
     1 => loop.play;
     1 => loop.loop;
     1 => loop.loopRec;
@@ -138,6 +139,7 @@ while (true) {
       loop[id].loop.loopEnd(loop[id].beatLength::second);
 
       <<< msg.data3, " beatlength:", loop[id].beatLength >>>;
+      <<< msg.data3, " barlength:", loop[id].beatLength*4 >>>;
       <<< msg.data3, " bpm:", loop[id].beatLength * 60 >>>;
 
     }

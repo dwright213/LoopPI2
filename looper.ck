@@ -88,7 +88,7 @@ while (true) {
       <<< id, "record:", record >>>;
       loop[id].record(record);
       loop[id].loop.loopStart(0::second);
-      loop[id].loop.loopEnd(loop[id].barLength*2::second);
+      loop[id].loop.loopEnd(loop[id].barLength::second);
 
       <<< loop[id].beatLength>>>;
         
@@ -148,7 +148,7 @@ while (true) {
 
       //set the loopEnd time with all this new information
       //lets use 2 bars for simplicity's sake.
-      loop[id].loop.loopEnd(loop[id].barLength*2::second);
+      loop[id].loop.loopEnd(loop[id].barLength::second);
 
 
 

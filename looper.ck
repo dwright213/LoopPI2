@@ -86,8 +86,6 @@ while (true) {
       msg.data3 == 127 => int record;
 
       <<< id, "record:", record >>>;
-      loop[id].barLength::second => loop[id].loop.duration;
-      <<< "loop duration:", loop[id].loop.duration >>>;
 
       loop[id].record(record);
       loop[id].loop.loopStart(0::second);
@@ -154,7 +152,9 @@ while (true) {
       //lets use 2 bars for simplicity's sake.
       loop[id].loop.loopEnd(loop[id].barLength::second);
 
-
+      //maybe we can change the loop duration here.
+      loop[id].barLength::second => loop[id].loop.duration;
+      <<< "loop duration:", loop[id].loop.duration >>>;
 
 
       <<< msg.data3, " beatlength:", loop[id].beatLength >>>;

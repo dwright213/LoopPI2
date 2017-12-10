@@ -130,7 +130,7 @@ while (true) {
       loop[id].feedback(feedback);
     }
 */
-    // bpmish
+    // bpm info
     else if (msg.data2 == 16) {
       msg.data2 - 16 => int id;
       //msg.data3 / 60.0 => loop[id].beatLength;
@@ -148,7 +148,7 @@ while (true) {
 
       //set the loopEnd time with all this new information
       //lets use 2 bars for simplicity's sake.
-      loop[id].loop.loopEnd(loop[id].barLength::second * 2);
+      loop[id].loop.loopEnd(loop[id].barLength*2::second);
 
 
 

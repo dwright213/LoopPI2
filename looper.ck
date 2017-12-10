@@ -140,7 +140,7 @@ while (true) {
       msg.data3 => loop[id].bpm;
 
       //set the number of seconds in a beat
-      60 / msg.data3 => loop[id].beatLength;
+      60 / loop[id].bpm => loop[id].beatLength;
 
       //in a 4/4 beat we multiply our beatLength by four to get 
       //our bar length. 

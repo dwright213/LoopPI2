@@ -2,10 +2,10 @@ class Loop {
   LiSa loop;
 
   float beatLength;
+  float barLength;
   float bpm;
   
   fun void init(Gain input) {
-    6::second => loop.duration;
     6::second => loop.duration;
     1 => loop.play;
     1 => loop.loop;
@@ -63,6 +63,7 @@ adc => passThrough => dac;
 
 1.0 => inputGain.gain;
 1.0 => passThrough.gain;
+2 => 
 
 Loop loop[loopsCount];
 
@@ -88,7 +89,7 @@ while (true) {
       <<< id, "record:", record >>>;
       loop[id].record(record);
       loop[id].loop.loopStart(0::second);
-      loop[id].loop.loopEnd(loop[id].beatLength::second);
+      loop[id].loop.loopEnd(loop[id].barLength*2::second);
 
       <<< loop[id].beatLength>>>;
         
@@ -135,11 +136,12 @@ while (true) {
       msg.data2 - 16 => int id;
       msg.data3 / 60.0 => loop[id].beatLength;
       msg.data3 => loop[id].bpm;
+      loop[id].beatLength * 4 => loop[id].barLength 
 
       loop[id].loop.loopEnd(loop[id].beatLength::second);
 
       <<< msg.data3, " beatlength:", loop[id].beatLength >>>;
-      <<< msg.data3, " barlength:", loop[id].beatLength*4 >>>;
+      <<< msg.data3, " barlength:", loop[id].beatLength * 4 >>>;
       <<< msg.data3, " bpm:", loop[id].beatLength * 60 >>>;
 
     }

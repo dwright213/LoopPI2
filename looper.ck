@@ -87,6 +87,8 @@ while (true) {
 
       <<< id, "record:", record >>>;
       loop[id].barLength::second => loop[id].loop.duration;
+      <<< "loop duration:", loop[id].loop.duration >>>;
+
       loop[id].record(record);
       loop[id].loop.loopStart(0::second);
       loop[id].loop.loopEnd(loop[id].barLength::second);

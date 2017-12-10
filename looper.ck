@@ -86,8 +86,10 @@ while (true) {
       msg.data3 == 127 => int record;
 
       <<< id, "record:", record >>>;
+      loop[id].barLength::second => loop[id].loop.duration
       loop[id].record(record);
       loop[id].loop.loopStart(0::second);
+      loop[id].loop.loopEnd(loop[id].barLength::second);
       loop[id].loop.loopEnd(loop[id].barLength::second);
 
       <<< loop[id].beatLength>>>;

@@ -133,11 +133,25 @@ while (true) {
     // bpmish
     else if (msg.data2 == 16) {
       msg.data2 - 16 => int id;
-      msg.data3 / 60.0 => loop[id].beatLength;
+      //msg.data3 / 60.0 => loop[id].beatLength;
+
+      
+      //get our bpm
       msg.data3 => loop[id].bpm;
+
+      //set the number of seconds in a beat
+      60 / msg.data3 => loop[id].beatLength;
+
+      //in a 4/4 beat we multiply our beatLength by four to get 
+      //our bar length. 
       loop[id].beatLength * 4 => loop[id].barLength; 
 
-      loop[id].loop.loopEnd(loop[id].beatLength::second);
+      //set the loopEnd time with all this new information
+      //lets use 2 bars for simplicity's sake.
+      loop[id].loop.loopEnd(loop[id].barLength::second * 2);
+
+
+
 
       <<< msg.data3, " beatlength:", loop[id].beatLength >>>;
       <<< msg.data3, " barlength:", loop[id].beatLength * 4 >>>;
